@@ -12,7 +12,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-6xi^1e0(xo7d@4^ryli5ew(^vqa&=fqw-ns2d^v+)pztsv0qoc'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
 
@@ -40,7 +40,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware'
+    
 ]
 
 ROOT_URLCONF = 'agenda.urls'
@@ -108,18 +108,14 @@ USE_I18N = True
 
 USE_TZ = True
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'stactifiles')
-STATIC_TIMP = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
-
-os.makedirs(STATIC_TIMP, exist_ok=True)
-os.makedirs(STATIC_ROOT, exist_ok=True)
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
 
 
-STATICFILE_STORAGE = 'whitenoise.storege.CompressedManifestStaticFilesStorage'
+
+
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

@@ -10,6 +10,6 @@ urlpatterns = [
     path('add_contact/', add_contact, name='add_contact'),
     path('edit_contact/<int:contact_id>/', edit_contact, name='edit_contact'),
     path('delete_contact/<int:contact_id>/', delete_contact, name='delete_contact'),
-] + static(settings.STACTIC_URL, document_root=settings.STATIC_ROOT)
+] 
 
 
