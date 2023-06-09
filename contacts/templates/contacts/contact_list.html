@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de contactos</title>
+    <link rel="stylesheet" href="{% static 'contacts/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1 class="titulo">Lista de contactos</h1>
+        <ul class="contact-list">
+        {% for contact in contacts %}
+            <li class="contact-item">
+                <div class="contact-info">
+                    <span class="name">{{ contact.first_name }} {{ contact.last_name }}</span>
+                    <span class="email">{{ contact.email }}</span>
+                    <span class="phone">{{ contact.phone_number }}</span>
+                </div>
+                <div class="contact-actions">
+                    <a href="{% url 'edit_contact' contact.id %}" class="button editar">Editar</a>
+                    <a href="{% url 'delete_contact' contact.id %}" class="button eliminar">Eliminar</a>
+                </div>
+            </li>
+        {% endfor %}
+        </ul>
+        <a href="{% url 'add_contact' %}" class="button agregar">Agregar contacto</a>
+    </div>
+</body>
+</html>

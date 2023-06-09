@@ -1,0 +1,37 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar contacto</title>
+    <link rel="stylesheet" href="{% static 'contacts/agregar.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1 class="titulo">Editar contacto</h1>
+        <form method="post" action="{% url 'edit_contact' contact.id %}">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="first_name">Nombre:</label>
+                <input type="text" id="first_name" name="first_name" class="form-control" value="{{ contact.first_name }}">
+            </div>
+            <div class="form-group">
+                <label for="last_name">Apellido:</label>
+                <input type="text" id="last_name" name="last_name" class="form-control" value="{{ contact.last_name }}">
+            </div>
+            <div class="form-group">
+                <label for="email">Correo electrónico:</label>
+                <input type="email" id="email" name="email" class="form-control" value="{{ contact.email }}">
+            </div>
+            <div class="form-group">
+                <label for="phone_number">Número de teléfono:</label>
+                <input type="text" id="phone_number" name="phone_number" maxlength="8" class="form-control" value="{{ contact.phone_number }}">
+            </div>
+            <div class="button-group">
+                <button type="submit" class="button">Guardar</button>
+                <a href="{% url 'contact_list' %}" class="button cancelar">Cancelar</a>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

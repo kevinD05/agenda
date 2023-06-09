@@ -1,0 +1,13 @@
+{% load static %}
+
+{% block content %}
+  <h1 class="title">Eliminar contacto</h1>
+  <link rel="stylesheet" href="{% static 'contacts/eliminar.css' %}">
+  <p class="warning-message">¿Estás seguro de que deseas eliminar este contacto?</p>
+  
+  <form method="post" action="{% url 'delete_contact' contact.id %}">
+    {% csrf_token %}
+    <button type="submit" class="delete-button">Eliminar</button>
+    <a href="{% url 'contact_list' %}" class="button cancelar">Cancelar</a>
+  </form>
+{% endblock %}
